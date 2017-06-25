@@ -17,12 +17,10 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/index.html')
-  var cursor = db.collection('quotes').find().toArray(function(err, results) {
-  console.log(results)
-  // send HTML file populated with quotes here
+  db.collection('quotes').find().toArray((err, results) => {
+    if (err) return console.log(err)
+    res.render('index.ejs', {quotes: result})
 })
-  console.log(cursor)
 })
 
 app.post('/quotes', (req, res) => {
