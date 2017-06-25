@@ -17,14 +17,14 @@ app.set('view engine', 'ejs')
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', (req, res) => {
-  db.collection('quotes').find().toArray((err, result) => {
+  db.collection('memories').find().toArray((err, result) => {
     if (err) return console.log(err)
-    res.render('index.ejs', {quotes: result})
+    res.render('index.ejs', {memories: result})
   })
 })
 
 app.post('/quotes', (req, res) => {
-  db.collection('quotes').save(req.body, (err, result) => {
+  db.collection('memories').save(req.body, (err, result) => {
     if (err) return console.log(err)
 
     console.log('saved to database')
