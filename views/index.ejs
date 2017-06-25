@@ -12,6 +12,7 @@
     <li class="quote">
       <span><%= quotes[i].name %></span>
       <span><%= quotes[i].quote %></span>
+      <span><%= quotes[i].memories %></span>
     </li>
   <% } %>
   </ul>
@@ -19,6 +20,7 @@
   <form action="/quotes" method="POST">
     <input type="text" placeholder="name" name="name">
     <input type="text" placeholder="quote" name="quote">
+    <input type="text" placeholder="memories" name="memories">
     <button type="submit">Submit</button>
   </form>
 </body>
